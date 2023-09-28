@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import PlayGround from '../views/PlayGround.vue';
+import TodoApp from '../views/TodoApp.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,6 +23,11 @@ const router = createRouter({
       path: '/play-ground',
       name: 'play-ground',
       component: PlayGround
+    },
+    {
+      path: '/todo',
+      name: 'todo',
+      component: TodoApp
     }
   ]
 });

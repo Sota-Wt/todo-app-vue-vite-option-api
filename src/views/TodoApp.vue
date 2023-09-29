@@ -1,19 +1,26 @@
 <script>
-import { mapStores } from 'pinia';
+import { mapActions, mapStores } from 'pinia';
 import { useTaskStore } from '../stores/task';
 import TaskList from '../components/TodoApp/TaskList.vue';
 
 export default {
     components: {
-        TaskList
+        TaskList,
     },
     computed: {
-        ...mapStores(useTaskStore)
-    }
+        ...mapStores(useTaskStore),
+    },
+    methods: {
+        ...mapActions(useTaskStore, {
+            onClickCheckButton: 'completeTask',
+            onClickDeleteButton: 'deleteTask',
+        }),
+    },
 };
 </script>
 <template>
     <div div class="todo-app-area">
-        <TaskList :tasks="taskStore.allTasks" />
+        <TaskList :tasks="taskStore.allTasks" @on-click-check-button="(id) => onClickCheckButton(id)"
+            @on-click-delete-button="(id) => onClickDeleteButton(id)" />
     </div>
 </template>

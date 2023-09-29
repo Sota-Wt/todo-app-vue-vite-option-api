@@ -1,6 +1,15 @@
 <script>
 export default {
-    props: ['task']
+    props: ['task'],
+    emit: ['onClickCheckButton', 'onClickDeleteButton'],
+    methods: {
+        onClickCheckButton(id) {
+            this.$emit('onClickCheckButton', id);
+        },
+        onClickDeleteButton(id) {
+            this.$emit('onClickDeleteButton', id);
+        },
+    },
 };
 </script>
 <template>
@@ -8,7 +17,7 @@ export default {
         <v-container>
             <v-row>
                 <v-col>
-                    <v-btn color="teal" size="small">
+                    <v-btn color="teal" size="small" @click="onClickCheckButton(task.id)">
                         <font-awesome-icon icon="fa-solid fa-check" />
                     </v-btn>
                 </v-col>
@@ -27,7 +36,7 @@ export default {
                     </v-btn>
                 </v-col>
                 <v-col>
-                    <v-btn color="teal" size="small">
+                    <v-btn color="teal" size="small" @click="onClickDeleteButton(task.id)">
                         <font-awesome-icon icon="fa-solid fa-trash-can" />
                     </v-btn>
                 </v-col>

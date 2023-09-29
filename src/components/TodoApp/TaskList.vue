@@ -3,19 +3,27 @@ import TaskItem from './TaskItem.vue';
 
 export default {
     components: {
-        TaskItem
+        TaskItem,
     },
     props: ['tasks'],
-    mounted() {
-        console.log(this.tasks);
-    }
+    emit: ['onClickCheckButton', 'onClickDeleteButton'],
+    methods: {
+        onClickCheckButton(id) {
+            this.$emit('onClickCheckButton', id);
+        },
+        onClickDeleteButton(id) {
+            this.$emit('onClickDeleteButton', id);
+        },
+    },
 };
 </script>
 <template>
     <v-container>
-        <v-card class="task-list-area">
+        <v-card>
             <v-container>
-                <TaskItem v-for="task in tasks" :key="task.id" :task="task" class="task-item" />
+                <TaskItem v-for="task in tasks" :key="task.id" :task="task" class="task-item"
+                    @on-click-check-button="(id) => onClickCheckButton(id)"
+                    @on-click-delete-button="(id) => onClickDeleteButton(id)" />
             </v-container>
         </v-card>
     </v-container>

@@ -1,6 +1,6 @@
 import { Task } from '../../Models/Task';
 
-export let dummyTasks = [
+export const dummyTasks = [
     new Task(1, 'Study Vue', 'High', false, false),
     new Task(2, 'Study React', 'High', false, false),
     new Task(3, 'Study Angular', 'High', false, false),

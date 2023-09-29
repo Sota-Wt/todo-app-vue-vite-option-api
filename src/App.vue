@@ -13,13 +13,6 @@
         </v-app-bar>
       </v-layout>
     </v-card>
-    <!-- <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink> | <RouterLink to="/about">About</RouterLink> |
-        <RouterLink tag="button" class="v-btn" to="/todo">Todo</RouterLink> |
-        <RouterLink tag="button" class="v-btn" color="teal" to="/play-ground">PlayGround</RouterLink> |
-      </nav>
-    </div> -->
   </header>
   <RouterView />
 </template>

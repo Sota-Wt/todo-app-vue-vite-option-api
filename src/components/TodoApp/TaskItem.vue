@@ -1,7 +1,7 @@
 <script>
 export default {
     props: ['task'],
-    emit: ['onClickCheckButton', 'onClickDeleteButton'],
+    emits: ['onClickCheckButton', 'onClickDeleteButton'],
     methods: {
         onClickCheckButton(id) {
             this.$emit('onClickCheckButton', id);

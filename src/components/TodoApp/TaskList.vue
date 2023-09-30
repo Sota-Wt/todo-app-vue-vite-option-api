@@ -6,7 +6,7 @@ export default {
         TaskItem,
     },
     props: ['tasks'],
-    emit: ['onClickCheckButton', 'onClickDeleteButton'],
+    emits: ['onClickCheckButton', 'onClickDeleteButton'],
     methods: {
         onClickCheckButton(id) {
             this.$emit('onClickCheckButton', id);
@@ -18,15 +18,8 @@ export default {
 };
 </script>
 <template>
-    <v-container>
-        <v-card>
-            <v-container>
-                <TaskItem v-for="task in tasks" :key="task.id" :task="task" class="task-item"
-                    @on-click-check-button="(id) => onClickCheckButton(id)"
-                    @on-click-delete-button="(id) => onClickDeleteButton(id)" />
-            </v-container>
-        </v-card>
-    </v-container>
+    <TaskItem v-for="task in tasks" :key="task.id" :task="task" class="task-item"
+        @on-click-check-button="(id) => onClickCheckButton(id)" @on-click-delete-button="(id) => onClickDeleteButton(id)" />
 </template>
 <style scoped>
 .task-item {

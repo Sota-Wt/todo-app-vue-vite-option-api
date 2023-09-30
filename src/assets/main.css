@@ -18,6 +18,6 @@ main {
 .todo-app-area {
   margin-top: 60px;
   width: 100%;
-  position: fixed;
+  /* position: fixed; */
   max-height: 548px;
 }

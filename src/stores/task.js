@@ -8,7 +8,7 @@ export const useTaskStore = defineStore('task', {
         allTasks: (state) => state.tasks,
         totalCount: (state) => state.tasks.length,
         completedCount: (state) => state.tasks.filter((task) => task.completed).length,
-        inCompletefCount: (state) => state.tasks.filter.filter((task) => !task.completed).length,
+        inCompletedCount: (state) => state.tasks.filter((task) => !task.completed).length,
     },
     actions: {
         completeTask(id) {

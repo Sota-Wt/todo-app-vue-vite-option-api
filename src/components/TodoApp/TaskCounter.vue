@@ -1,11 +1,11 @@
 <script>
 export default {
-    props: ['totalCount', 'completedCount', 'inCompletedCount'],
+    props: ['totalCount', 'completedCount', 'incompletedCount'],
 };
 </script>
 <template>
     <div>
-        Total : {{ totalCount }} | Completed : {{ completedCount }} | InCompleted
-        {{ inCompletedCount }}
+        Total : {{ totalCount }} | Completed : {{ completedCount }} | Incompleted
+        {{ incompletedCount }}
     </div>
 </template>

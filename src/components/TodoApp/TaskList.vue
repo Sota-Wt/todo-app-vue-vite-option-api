@@ -24,7 +24,7 @@ export default {
     <TaskItem v-for="task in tasks" :key="task.id" :task="task" class="task-item"
         @on-click-check-button="(id) => onClickCheckButton(id)" @on-click-delete-button="(id) => onClickDeleteButton(id)"
         @on-click-submit-button-to-update="(inputtedTask, selectedPriority, id) =>
-                onClickSubmitButtonToUpdate(inputtedTask, selectedPriority, id)
+            onClickSubmitButtonToUpdate(inputtedTask, selectedPriority, id)
             ">
     </TaskItem>
 </template>

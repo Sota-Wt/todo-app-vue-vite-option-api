@@ -1,7 +1,17 @@
 <script>
+import TaskModal from './TaskModal.vue';
 export default {
+    inheritAttrs: false,
+    components: {
+        TaskModal
+    },
     props: ['task'],
-    emits: ['onClickCheckButton', 'onClickDeleteButton'],
+    emits: ['onClickCheckButton', 'onClickDeleteButton', 'onClickSubmitButtonToUpdate'],
+    data() {
+        return {
+            openTaskModal: false,
+        };
+    },
     methods: {
         onClickCheckButton(id) {
             this.$emit('onClickCheckButton', id);
@@ -9,10 +19,17 @@ export default {
         onClickDeleteButton(id) {
             this.$emit('onClickDeleteButton', id);
         },
+        onClickSubmitButtonToUpdate(inputtedTask, selectedPriority, id) {
+            this.$emit('onClickSubmitButtonToUpdate', inputtedTask, selectedPriority, id);
+        },
     },
 };
 </script>
 <template>
+    <TaskModal :is-add-task="false" :task="task" v-model="openTaskModal"
+        @on-click-delete-modal-button="openTaskModal = !openTaskModal" @on-click-submit-button-to-update="(inputtedtask, selectedPriority) =>
+            onClickSubmitButtonToUpdate(inputtedtask, selectedPriority, task.id)
+            " />
     <v-card class="task-item-card" :color="task.completed ? 'teal-lighten-4' : ''">
         <v-container>
             <v-row>
@@ -31,7 +48,7 @@ export default {
                     {{ task.priority }}
                 </v-col>
                 <v-col cols="1" align-self="center">
-                    <v-btn color="teal" size="small">
+                    <v-btn color="teal" size="small" @click="openTaskModal = !openTaskModal">
                         <font-awesome-icon icon="fa-solid fa-pen" />
                     </v-btn>
                 </v-col>

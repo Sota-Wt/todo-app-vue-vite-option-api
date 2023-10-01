@@ -24,10 +24,12 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faTrashCan);
 library.add(faPen);
 library.add(faCheck);
+library.add(faPlus);
 
 const vuetify = createVuetify({
     components,
